@@ -25,6 +25,7 @@ def tablero_monopoly():
 tablero_monopoly()
 
 
-casillas = [ "Sortida", "Lauria", 
-     
+casillas = [ "Sortida", "Lauria", "Rosell", "Sort", "Marina", "Marina","Consell", "Presó",
+            "Muntan", "Aribau", "Caixa", "S.Joan", "Aragó", "Parking", "Urquinoa", "Fontan",
+            "Sort", "Rambles", "Pl.Cat","Anr pró", " Angel", "Augusta", "Caixa", "Balmes", "Gracia"     
 ]
