@@ -1,0 +1,20 @@
+Nombre casilla,Precio terreno,Precio Casa,Precio Hotel,Alquiler terreno,Alquiler casa,Alquiler hotel,Vendido/Comprado,Edificios
+Sortida,0,0,0,0,0,0,Banco,None
+Lauria,50,200,250,5,10,15,No,None
+Rosselló,50,225,255,5,10,15,No,None
+Marina,50,250,260,10,15,15,No,None
+C. de cent,50,275,265,10,15,20,No,None
+Muntaner,60,300,270,15,20,20,No,None
+Aribau,60,325,275,15,20,20,No,None
+Sant Joan,60,350,280,20,25,25,No,None
+Aragó,60,375,285,20,25,25,No,None
+Urquinaona,70,400,290,25,30,25,No,None
+Fontana,70,425,300,25,30,30,No,None
+Les Rambles,70,450,310,30,35,30,No,None
+Pl. Catalunya,70,475,320,30,35,30,No,None
+P. Àngel,80,500,330,35,40,35,No,None
+Via Augusta,80,525,340,35,40,35,No,None
+Balmes,80,550,350,45,50,40,No,None
+Pg. de Gràcia,80,525,360,45,50,50,No,None
+Carcel,0,0,0,0,0,0,Banco,None
+Parking,0,0,0,0,0,0,Banco,None

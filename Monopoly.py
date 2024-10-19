@@ -1,20 +1,19 @@
 #Imports
-from random import randomint
 
-#Variables
-
-dado1 = -1
-dado2 = -1
-total = 0
+import random
+import pandas as pd
 
 #Bucle del juego
 
-while juego:
+def Tirar_dados():
     #Valores del dado entre 1 y 6 (Tirar dado)
-    dado1 = randomint(1, 6)
-    dado2 = randomint(1, 6)
+    dado1 = random.randint(1, 6)
+    dado2 = random.randint(1, 6)
 
     #Total
-    total = dado1 + dado2 
-    #Mostrar el total
-    print(f"Dados: {total}, El primer dado fue {dado1} y el segundo fue {dado2}")
+    total = dado1 + dado2
+ 
+    return total
+
+casillas = pd.read_csv('Casillas.csv')
+print(casillas)
