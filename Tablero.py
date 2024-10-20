@@ -11,7 +11,7 @@ def crear_fila_horizontal():
      print(" ")
      
 def crear_laterales():
-     for i in range(7):
+     for i in range(5):
       print("+--------+" + " "* 56 + "+--------+")
       print("|" + " " * 8 + "|"+ " "* 56 + "|" + " " * 8 + "|")
       print("|" + " " * 8 + "|"+ " "* 56 + "|" + " " * 8 + "|")
