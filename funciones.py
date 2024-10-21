@@ -36,6 +36,11 @@ def puedocomprar(posicion):
    total = (lista_hoteles[posicion] == 0 and lista_casas[posicion]<4) or (lista_hoteles[posicion]) == 1 and lista_casas
    if (lista_hoteles[posicion] == 0 and lista_casas[posicion]<4) or (lista_hoteles[posicion]) == 1 and lista_casas:
     return total
+   
+def puedocomprarhotel(posicion):
+    total = (lista_hoteles[posicion] < 2 and lista_casas[posicion] <= 2 ) 
+    if (lista_hoteles[posicion] == 0 and lista_casas[posicion]<4) or (lista_hoteles[posicion]) == 1 and lista_casas:
+     return total
 
 
 def convertiranumero(cadena):
@@ -56,9 +61,28 @@ def muestrasaldos():
    print("Jugador T:",dineroxjugador[2])
    print("Jugador B:",dineroxjugador[3])
 
+def orden_jugadores():
+    V=random.randint(1,12)
+    G=random.randint(1,12)
+    T=random.randint(1,12)
+    B=random.randint(1,12)
+
+    if G < V:
+        temp = G
+        V = G
+        tmp = V
+    if G < T:
+        temp = G
+        V = G
+        tmp = V
+    if G < B:
+        temp = G
+        V = G
+        tmp = V
+
 
 #INICIO DE JUEGO
-jugadoractual=0  #jugadores van del 0 al 3
+jugadoractual = 0  #jugadores van del 0 al 3
 eljuegosigue=True
 marca=""
 while eljuegosigue:
@@ -77,7 +101,7 @@ while eljuegosigue:
        banca=banca-200
 
 
-   print(f"Juga "{jugadoractual}", ha sortit {dado1} i {dado2}")
+   print(f"Juga {jugadoractual}, ha sortit {dado1} i {dado2}")
    print(f"{jugadoractual} avanza a {listacasillas[nuevaposicion-1]}")
    #INICIO SECCION EL LUGAR ES DE OTRO DUEÑO
    if listaduenos[nuevaposicion]!="N" and listaduenos[nuevaposicion]!=lista_jugadores[jugadoractual]:
@@ -91,18 +115,18 @@ while eljuegosigue:
        #INICIO SECCION: -----NO ES DE NADIE O ES TUYO------
        marca="fallo"
        while marca=="fallo":
-           rpta=input("Escoger una opcion: PA pasar, C comprar casa, T comprar terreno, H comprar hotel, PR precios")
-           if rpta=="T":
+           rpta=input(f"Juga '{jugadoractual}': passar, comprar casa, comprar hotel, preus")
+           if rpta=="comprar casa":
                if listaduenos[nuevaposicion]=="N":
-                   if dineroxjugador[jugadoractual]-valorterreno>=0:
-                       dineroxjugador[jugadoractual]=dineroxjugador[jugadoractual]-valorterreno
-                       banca=banca+valorterreno
-                       print("Terreno comprado")
+                   if dineroxjugador[jugadoractual]-lista_terrenos>=0:
+                       dineroxjugador[jugadoractual]=dineroxjugador[jugadoractual]-lista_terrenos
+                       banca=banca+lista_terrenos
+                       print(f"{jugadoractual} ha comprat {listacasillas[nuevaposicion-1]}")
                        marca="ok"
                    else:
-                       print("No te alcanza para comprar el terreno")
+                       print("No tens suficients calés")
                        marca="fallo"
-           if rpta=="C":
+           if rpta=="comprar casa":
                if listaduenos[nuevaposicion] == jugadoractual :
                    valorcasa = lista_preciocasa[nuevaposicion]
                    if puedocomprar(nuevaposicion):
@@ -113,13 +137,10 @@ while eljuegosigue:
                            lista_casas[nuevaposicion] += 1
                            marca="ok"
                        else:
-                           print("No te alcanza para comprar el casa")
                            marca = "fallo"
                    else:
-                       print("NO ES POSIBLE COMPRAR.")
                        marca = "fallo"
                else:
-                   print("No puedes comprar porque no es tu terreno")
                    marca="fallo"
            if rpta=="H":
                if listaduenos[nuevaposicion] == jugadoractual :
@@ -128,24 +149,23 @@ while eljuegosigue:
                        if dineroxjugador[jugadoractual]-valorhotel>=0:
                            dineroxjugador[jugadoractual]=dineroxjugador[jugadoractual]-valorhotel
                            banca=banca+valorhotel
-                           print("Hotel comprado")
+                           print("Hotel comprat")
                            lista_casas[nuevaposicion]-=2
                            lista_hoteles[nuevaposicion]+=1
                            marca="ok"
                        else:
-                           print("No te alcanza para comprar el hotel")
+                           print("No tens suficents calés")
                            marca="fallo"
                    else:
-                       print("NO ES POSIBLE COMPRAR.")
+                       print("No es posible comprar")
                        marca = "fallo"
                else:
-                   print("No puedes comprar hotel porque no es tu terreno")
+                   print("No pots comprar el terreny")
                    marca = "fallo"
-           if rpta=="PR":
-               print("MOSTRAR PRECIOS")
+           if rpta=="preus":
+               print(f"{listacasillas[nuevaposicion-1[lista_terrenos]]}")
                marca = "ok"
-           if rpta=="PA":
-               print("Fin de jugada. Pasemos al siguiente jugador.")
+           if rpta=="passar":
                marca="ok"
            # FIN SECCION: -----NO ES DE NADIE O ES TUYO------
    muestrasaldos()
