@@ -50,9 +50,14 @@ def tablero_monopoly(casillas):
      crear_laterales(casillas)
      crear_fila_horizontal2(casillas, 6, 0)
 
+
+
 casillas = ["Sortida", "Lauria", "Rosell", "Sort", "Marina", "Marina","Consell", "Presó",
             "Muntan", "Aribau", "Caixa", "S.Joan", "Aragó", "Parking", "Urquinoa", "Fontan",
             "Sort", "Rambles", "Pl.Cat","Anr pró", " Angel", "Augusta", "Caixa", "Balmes", "Gracia"]
 
 tablero_monopoly(casillas)
+opcion = (input("Juga V, opcions: passar, comprar casa, comprar hotel, preus"))
+
+
 

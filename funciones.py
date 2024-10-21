@@ -73,12 +73,12 @@ def orden_jugadores():
         tmp = V
     if G < T:
         temp = G
-        V = G
-        tmp = V
+        T = G
+        tmp = G
     if G < B:
         temp = G
-        V = G
-        tmp = V
+        B = G
+        tmp = G
 
 
 #INICIO DE JUEGO
@@ -154,7 +154,7 @@ while eljuegosigue:
                            lista_hoteles[nuevaposicion]+=1
                            marca="ok"
                        else:
-                           print("No tens suficents calés")
+                           print("No tens suficients calés")
                            marca="fallo"
                    else:
                        print("No es posible comprar")
