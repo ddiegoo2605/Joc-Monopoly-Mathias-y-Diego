@@ -2,32 +2,40 @@ import random
 listacasillas=["Sortida", "Lauria", "Rosell", "Sort", "Marina", "Marina","Consell", "Presó",
             "Muntan", "Aribau", "Caixa", "S.Joan", "Aragó", "Parking", "Urquinoa", "Fontan",
             "Sort", "Rambles", "Pl.Cat","Anr pró", " Angel", "Augusta", "Caixa", "Balmes", "Gracia"]
-listaduenos=["N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N",]
-lista_casas=["N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N",]
-lista_hoteles=["N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N",]
+listaduenos=["N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N",]
+lista_casas=["N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N",]
+lista_hoteles=["N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N",]
 lista_preciocasa=["200","225","250","275","300","325","350","375","400","425","450","475","500","525","550","525"]
 lista_preciohotel=["250","255","260","265","270","275","280","285","290","300","310","320","330","340","350","360"]
-lista_multacasa=["10","10","15","15","20","20","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N",]
-lista_multahotel=["N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N",]
+lista_multacasa=["10","10","15","15","20","20","25","25","30","30","35","35","40","40","50","50",]
+lista_multahotel=["15","15","15","20","20","20","25","25","25","30","30","35","35","40","40","50","50",]
+lista_terrenos=["50","50","50","50","60","60","60","60","70","70","70","70","80","80","80","80",]
 lista_jugadores=["V","G","T","B"]
+lista_suerte=["Sortir de Presó", "Anar a la presó", "Anar a la sortida", "Anar tres espais enderrere", "Fer reparacions a les propietats:El jugador paga 25$ per cada propietat i 100$ per cada hotel a la banca",
+              "Ets escollit alcalde, cada jugador et paga 50$"]
+lista_caja=["Sortir de la presó","Anar a la presó", "Error de banca al teu favor; guanyes 150$","Despeses mediques, pagues 50$","Despeses escolars, pagues 50$",
+            " Reparacions al carrer, pagues 40$", "Concurs de belleza, guanyes 10$"]
+lista_cartas_especiales=["N", "N", "N", "N"]
+
 for x in range(24):
+   lista_terrenos.append(0)
    listacasillas.append(x+1)
    listaduenos.append("N")
    lista_casas.append(0)
    lista_hoteles.append(0)
-   lista_preciocasa.append(30)
-   lista_preciohotel.append(100)
-   lista_multacasa.append(20)
-   lista_multahotel.append(60)
+   lista_preciocasa.append(200)
+   lista_preciohotel.append(250)
+   lista_multacasa.append(10)
+   lista_multahotel.append(15)
 dineroxjugador=[2000,2000,2000,2000]
 banca=500000
-valorterreno=230
 lista_posiciones=[0,0,0,0]
 
 
 def puedocomprar(posicion):
-   if (lista_hoteles[posicion] == 0 and lista_casas[posicion]<4) or (lista_hoteles[posicion] == 1 and lista_casas
-   return total
+   total = (lista_hoteles[posicion] == 0 and lista_casas[posicion]<4) or (lista_hoteles[posicion]) == 1 and lista_casas
+   if (lista_hoteles[posicion] == 0 and lista_casas[posicion]<4) or (lista_hoteles[posicion]) == 1 and lista_casas:
+    return total
 
 
 def convertiranumero(cadena):
@@ -49,7 +57,7 @@ def muestrasaldos():
    print("Jugador B:",dineroxjugador[3])
 
 
-print("INICIANDO EL JUEGO...")
+#INICIO DE JUEGO
 jugadoractual=0  #jugadores van del 0 al 3
 eljuegosigue=True
 marca=""
@@ -69,11 +77,12 @@ while eljuegosigue:
        banca=banca-200
 
 
-   print("Estas en la casilla nro",nuevaposicion,"y la casilla se llama",listacasillas[nuevaposicion-1])
+   print(f"Juga "{jugadoractual}", ha sortit {dado1} i {dado2}")
+   print(f"{jugadoractual} avanza a {listacasillas[nuevaposicion-1]}")
    #INICIO SECCION EL LUGAR ES DE OTRO DUEÑO
    if listaduenos[nuevaposicion]!="N" and listaduenos[nuevaposicion]!=lista_jugadores[jugadoractual]:
        print("Es lugar del jugador",listaduenos[nuevaposicion])
-       montoacobrar=cuantocobrar(nuevaposicion)
+       montoacobrar=(nuevaposicion)
        dineroxjugador[jugadoractual]-=montoacobrar
        jugadordueno = convertiranumero(listaduenos[nuevaposicion])
        dineroxjugador[jugadordueno] += montoacobrar
